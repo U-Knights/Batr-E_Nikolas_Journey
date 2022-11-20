@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 148698964}
   - component: {fileID: 148698968}
   m_Layer: 0
-  m_Name: nikola_wheel_1_0
+  m_Name: NikolaWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,13 +158,14 @@ MonoBehaviour:
   movement: 0
   speed: 1
   circle: {fileID: 148698968}
-  angularDragMultiplier: 29
-  linearDragMultiplier: 29
+  angularDragMultiplier: 1
+  linearDragMultiplier: 1
   groundCheck: {fileID: 1837805619}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   energy: 100
+  speedo: {x: 0, y: 0}
 --- !u!58 &148698965
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 148698963}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c439528d105a9af4a8b999f4d6c4aa8a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -493,7 +494,7 @@ GameObject:
   - component: {fileID: 618081284}
   - component: {fileID: 618081286}
   m_Layer: 0
-  m_Name: nikola_shape-Sheet_1
+  m_Name: NikolaBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,7 +1621,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1952673049}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c439528d105a9af4a8b999f4d6c4aa8a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

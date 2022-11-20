@@ -5,8 +5,8 @@ using System.Collections;
 
 public class RobotMovement : MonoBehaviour
 {
-    public float movement;
-    public float speed;
+    [SerializeField] public float movement;
+    [SerializeField] public float speed;
     public Rigidbody2D circle;
     private float angularDragValue = 0;
     private float linearDragValue = 0;
@@ -18,6 +18,7 @@ public class RobotMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [Range(1, 100)]
     [SerializeField] public float energy = 50;
+    [SerializeField] public Vector2 speedo;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class RobotMovement : MonoBehaviour
 
     private void Update()
     {
+        speedo = circle.velocity;
         if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
         {
             energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
@@ -48,6 +50,10 @@ public class RobotMovement : MonoBehaviour
         {
             circle.angularDrag = angularDragValue;
             circle.drag = linearDragValue;
+            if (energy>0f)
+            {
+            circle.velocity = ChangeX(speedo, movement*speed);
+            }
         }
     }
 
@@ -64,4 +70,8 @@ public class RobotMovement : MonoBehaviour
             circle.AddTorque(-movement * speed * Time.fixedDeltaTime);
         }
     }
+    public static Vector2 ChangeX(Vector2 v, float x)
+     {
+         return new Vector2(x, v.y);
+     }
 }
