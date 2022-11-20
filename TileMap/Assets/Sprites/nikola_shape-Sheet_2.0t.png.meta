@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa8a875f7f4def04fa518262ee04125e
+guid: 294a91bfaaf73e44781cebf832750bac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -101,23 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nikola_shape-Sheet_0
+      name: nikola_shape-Sheet_2.0t_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e63d3b9e36624745b3600954762dfa5
-      internalID: 229695470
+      spriteID: 49e1e7ef06b9d024a96411ff0ee0198b
+      internalID: -1647800746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nikola_shape-Sheet_1
+      name: nikola_shape-Sheet_2.0t_1
       rect:
         serializedVersion: 2
         x: 16
@@ -152,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a6e926c0de62a84780b09c72c269240
-      internalID: -2063861521
+      spriteID: c6a2c5c9cff39204082e06c74e086c15
+      internalID: 1043197668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nikola_shape-Sheet_2
+      name: nikola_shape-Sheet_2.0t_2
       rect:
         serializedVersion: 2
         x: 32
@@ -173,8 +161,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fdc222bd6739d747b8c8a973494aee0
-      internalID: 114927821
+      spriteID: fb86c3658525fe64e8261a4a828716a1
+      internalID: 1430738757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nikola_shape-Sheet_2.0t_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f93568e67f486b459b201a1aa2ac85a
+      internalID: 1420155152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nikola_shape-Sheet_2.0t_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bee26af06f9ea43aee96983df64034
+      internalID: -982257505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nikola_shape-Sheet_2.0t_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e0b2f41b03f7254391280c5a2d4f993
+      internalID: 1535549798
       vertices: []
       indices: 
       edges: []
@@ -190,9 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      nikola_shape-Sheet_1: -2063861521
-      nikola_shape-Sheet_0: 229695470
-      nikola_shape-Sheet_2: 114927821
+      nikola_shape-Sheet_2.0t_0: -1647800746
+      nikola_shape-Sheet_2.0t_4: -982257505
+      nikola_shape-Sheet_2.0t_1: 1043197668
+      nikola_shape-Sheet_2.0t_3: 1420155152
+      nikola_shape-Sheet_2.0t_5: 1535549798
+      nikola_shape-Sheet_2.0t_2: 1430738757
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
