@@ -28,31 +28,33 @@ public class RobotMovement : MonoBehaviour
 
     private void Update()
     {
-        speedo = circle.velocity;
-        if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
-        {
-            energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
-        } 
-        bool IsGrounded()
-        {
-            return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
-        }
-
-        movement = Input.GetAxis("Horizontal");
-
-        if (Mathf.Abs(Input.GetAxis("Horizontal"))<0.5 && IsGrounded() && energy>0f)
-        {
-            circle.angularVelocity = 0f;
-            circle.angularDrag = angularDragValue*angularDragMultiplier;
-            circle.drag = linearDragValue*linearDragMultiplier;
-        }
-        else 
-        {
-            circle.angularDrag = angularDragValue;
-            circle.drag = linearDragValue;
-            if (energy>0f)
+        if(!Pause.paused){
+            speedo = circle.velocity;
+            if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
             {
-            circle.velocity = ChangeX(speedo, movement*speed);
+                energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
+            } 
+            bool IsGrounded()
+            {
+                return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+            }
+
+            movement = Input.GetAxis("Horizontal");
+
+            if (Mathf.Abs(Input.GetAxis("Horizontal"))<0.5 && IsGrounded() && energy>0f)
+            {
+                circle.angularVelocity = 0f;
+                circle.angularDrag = angularDragValue*angularDragMultiplier;
+                circle.drag = linearDragValue*linearDragMultiplier;
+            }
+            else 
+            {
+                circle.angularDrag = angularDragValue;
+                circle.drag = linearDragValue;
+                if (energy>0f)
+                {
+                circle.velocity = ChangeX(speedo, movement*speed);
+                }
             }
         }
     }

@@ -30,6 +30,6 @@ public class ElevatorHorizontal : MonoBehaviour
         }
         else {
             transform.position = Vector2.MoveTowards(transform.position, downposH.position, speed * Time.deltaTime);
-        }
+        } 
     }
 }
