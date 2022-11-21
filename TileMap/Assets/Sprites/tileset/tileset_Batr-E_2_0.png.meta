@@ -1898,7 +1898,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tileset_Batr-E_2_0_7: 1528684523
       tileset_Batr-E_2_0_41: -953085434
       tileset_Batr-E_2_0_6: 953253961
       tileset_Batr-E_2_0_34: 1680219930
@@ -1907,6 +1906,7 @@ TextureImporter:
       tileset_Batr-E_2_0_54: -124053864
       tileset_Batr-E_2_0_61: 1632039391
       tileset_Batr-E_2_0_58: -677038584
+      tileset_Batr-E_2_0_37: 84571925
       tileset_Batr-E_2_0_59: 753839985
       tileset_Batr-E_2_0_12: -2123295927
       tileset_Batr-E_2_0_33: -1764261979
@@ -1971,8 +1971,8 @@ TextureImporter:
       tileset_Batr-E_2_0_32: 367685003
       tileset_Batr-E_2_0_31: 1667743926
       tileset_Batr-E_2_0_21: 970361830
-      tileset_Batr-E_2_0_37: 84571925
       tileset_Batr-E_2_0_46: -1429965814
+      tileset_Batr-E_2_0_7: 1528684523
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
