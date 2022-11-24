@@ -1,5 +1,7 @@
 // Rotate an object around its Y (upward) axis in response to
 // left/right controls.
+
+using System;
 using UnityEngine;
 using System.Collections;
 
