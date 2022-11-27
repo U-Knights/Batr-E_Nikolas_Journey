@@ -21,11 +21,13 @@ public class RobotMovement : MonoBehaviour
     [Range(1, 100)]
     [SerializeField] public float energy = 50;
     [SerializeField] public Vector2 speedo;
+    private HealthBar bar;
 
     void Start()
     {
         angularDragValue = circle.angularDrag;
         linearDragValue = circle.drag;
+        bar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
     }
 
     private void Update()
@@ -34,7 +36,7 @@ public class RobotMovement : MonoBehaviour
         if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
         {
             energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
-        } 
+        }
         bool IsGrounded()
         {
             return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
@@ -57,6 +59,7 @@ public class RobotMovement : MonoBehaviour
             circle.velocity = ChangeX(speedo, movement*speed);
             }
         }
+        bar.SetHealth(energy);
     }
 
     private void OnCollisionEnter(Collision collision)
