@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
+    //public GameObject player;
+
     public Transform elevator;
     public Transform downpos;
     public Transform upperpos;
@@ -14,6 +16,12 @@ public class Elevator : MonoBehaviour
     void Start()
     {
         
+    }
+    private void OnCollisionEnter2D(Collision2D other) {
+        other.transform.parent = elevator;
+        }
+    private void OnCollisionExit2D(Collision2D other) {
+        other.transform.parent = null;
     }
 
     // Update is called once per frame
@@ -32,4 +40,5 @@ public class Elevator : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, downpos.position, speed * Time.deltaTime);
         }
     }
+    
 }
