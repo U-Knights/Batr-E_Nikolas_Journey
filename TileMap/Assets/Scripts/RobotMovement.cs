@@ -3,7 +3,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class RobotMovement : MonoBehaviour
+public class RobotMovement : MonoBehaviour, IChargeable
 {
     [SerializeField] public float movement;
     [SerializeField] public float speed;
@@ -28,11 +28,11 @@ public class RobotMovement : MonoBehaviour
 
     private void Update()
     {
-        if(!Pause.paused){
+        if (!Pause.paused){
             speedo = circle.velocity;
             if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
             {
-                energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
+                energy = Mathf.Clamp(energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f), 0, 100);
             } 
             bool IsGrounded()
             {
@@ -76,4 +76,18 @@ public class RobotMovement : MonoBehaviour
      {
          return new Vector2(x, v.y);
      }
+     
+     public void recharge(float amount) {
+        energy = Mathf.Clamp(energy += amount, 0, 100);
+
+        //Debug.Log(this.name + " energy: " + energy);
+
+    }
+    public float decharge(float amount)
+    {
+        float oldEnergy = energy;
+        // If the object is depleted, difference will be 0
+        energy = Mathf.Clamp(energy -= amount, 0, 100);
+        return oldEnergy - energy; // pass the decharged amount
+    }
 }
