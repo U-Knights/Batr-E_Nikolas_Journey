@@ -19,17 +19,32 @@ public class RobotMovement : MonoBehaviour, IChargeable
     [Range(1, 100)]
     [SerializeField] public float energy = 50;
     [SerializeField] public Vector2 speedo;
+    //Linh
+    public GameObject nikolaRight;
+    public GameObject nikolaLeft;
 
     void Start()
     {
         angularDragValue = circle.angularDrag;
         linearDragValue = circle.drag;
+        if (nikolaLeft!=null) nikolaLeft.SetActive(false); 
+        if (nikolaRight!=null) nikolaRight.SetActive(true);
     }
 
     private void Update()
     {
         if (!Pause.paused){
             speedo = circle.velocity;
+
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                if (nikolaLeft!=null) nikolaLeft.SetActive(false); 
+                if (nikolaRight!=null) nikolaRight.SetActive(true);
+            }else if (Input.GetAxisRaw("Horizontal") < 0){
+                if (nikolaLeft!=null) nikolaLeft.SetActive(true); 
+                if (nikolaRight!=null) nikolaRight.SetActive(false);
+            }
+
             if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
             {
                 energy = Mathf.Clamp(energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f), 0, 100);
