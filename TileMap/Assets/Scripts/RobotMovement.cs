@@ -43,6 +43,8 @@ public class RobotMovement : MonoBehaviour, IChargeable
             }else if (Input.GetAxisRaw("Horizontal") < 0){
                 if (nikolaLeft!=null) nikolaLeft.SetActive(true); 
                 if (nikolaRight!=null) nikolaRight.SetActive(false);
+            }else{
+                if (nikolaRight!=null) nikolaRight.SetActive(true);
             }
 
             if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
