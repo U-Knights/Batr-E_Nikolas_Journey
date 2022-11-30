@@ -7,4 +7,5 @@ public interface IChargeable
 {
     void recharge(float amount);
     float decharge(float amount);
+    void resetColor();
 }

@@ -9,16 +9,6 @@ public class ScriptLight : MonoBehaviour
     IChargeable chargeable;
     [SerializeField] private float energyStrength = 0.02f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void OnTriggerStay2D(Collider2D collider)
     {
         // Get anything that can be charged (has the Interface IChargeable)
@@ -30,5 +20,15 @@ public class ScriptLight : MonoBehaviour
                Let each Object take care about their individual implementation. */
             chargeable.recharge(energyStrength);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        chargeable = collider.GetComponent<IChargeable>();
+        if (chargeable != null)
+        {
+            chargeable.resetColor();
+        }
+
     }
 }

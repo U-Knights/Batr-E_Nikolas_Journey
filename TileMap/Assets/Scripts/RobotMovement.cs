@@ -4,6 +4,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using UnityEditor.UIElements;
 
 public class RobotMovement : MonoBehaviour, IChargeable
 {
@@ -23,7 +24,8 @@ public class RobotMovement : MonoBehaviour, IChargeable
     [SerializeField] public Vector2 speedo;
     //Linh
     public SpriteRenderer nikola;
-    
+    float colorSwitch = 1.0f;
+
     private HealthBar bar;
 
     void Start()
@@ -73,8 +75,8 @@ public class RobotMovement : MonoBehaviour, IChargeable
                         circle.velocity = ChangeX(speedo, movement*speed);
                     }
                 }
+            bar.SetHealth(energy);
         }
-        bar.SetHealth(energy);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -97,9 +99,14 @@ public class RobotMovement : MonoBehaviour, IChargeable
      
      public void recharge(float amount) {
         energy = Mathf.Clamp(energy += amount, 0, 100);
-
-        //Debug.Log(this.name + " energy: " + energy);
-
+        float blue;
+        
+        if (nikola.color.b <= 0 || nikola.color.b >= 1)
+        {
+            colorSwitch = colorSwitch * -1.0f;
+        }
+        blue = nikola.color.b + colorSwitch * Time.deltaTime;
+        nikola.color = new Color(1, 1, blue, 1);
     }
     public float decharge(float amount)
     {
@@ -107,5 +114,10 @@ public class RobotMovement : MonoBehaviour, IChargeable
         // If the object is depleted, difference will be 0
         energy = Mathf.Clamp(energy -= amount, 0, 100);
         return oldEnergy - energy; // pass the decharged amount
+    }
+
+    public void resetColor()
+    {
+        nikola.color = new Color(1, 1, 1, 1);
     }
 }
