@@ -1,5 +1,7 @@
 // Rotate an object around its Y (upward) axis in response to
 // left/right controls.
+
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -21,54 +23,67 @@ public class RobotMovement : MonoBehaviour, IChargeable
     [SerializeField] public Vector2 speedo;
     //Linh
     public SpriteRenderer nikola;
+    
+    private HealthBar bar;
 
     void Start()
     {
         angularDragValue = circle.angularDrag;
         linearDragValue = circle.drag;
+        bar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
     }
 
     private void Update()
     {
         if (!Pause.paused){
             speedo = circle.velocity;
-
-            if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                if (nikola != null) nikola.flipX = false;
-            }
-            else if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                if (nikola != null) nikola.flipX = true;
-            }
-
+            
             if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
             {
-                energy = Mathf.Clamp(energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f), 0, 100);
-            } 
+                energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
+            }
             bool IsGrounded()
             {
                 return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
             }
 
-            movement = Input.GetAxis("Horizontal");
-
-            if (Mathf.Abs(Input.GetAxis("Horizontal"))<0.5 && IsGrounded() && energy>0f)
-            {
-                circle.angularVelocity = 0f;
-                circle.angularDrag = angularDragValue*angularDragMultiplier;
-                circle.drag = linearDragValue*linearDragMultiplier;
-            }
-            else 
-            {
-                circle.angularDrag = angularDragValue;
-                circle.drag = linearDragValue;
-                if (energy>0f)
+                if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                circle.velocity = ChangeX(speedo, movement*speed);
+                    if (nikola != null) nikola.flipX = false;
                 }
-            }
+                else if (Input.GetAxisRaw("Horizontal") < 0)
+                {
+                    if (nikola != null) nikola.flipX = true;
+                }
+
+                if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
+                {
+                    energy = Mathf.Clamp(energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f), 0, 100);
+                } 
+                bool IsGrounded()
+                {
+                    return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+                }
+
+                movement = Input.GetAxis("Horizontal");
+
+                if (Mathf.Abs(Input.GetAxis("Horizontal"))<0.5 && IsGrounded() && energy>0f)
+                {
+                    circle.angularVelocity = 0f;
+                    circle.angularDrag = angularDragValue*angularDragMultiplier;
+                    circle.drag = linearDragValue*linearDragMultiplier;
+                }
+                else 
+                {
+                    circle.angularDrag = angularDragValue;
+                    circle.drag = linearDragValue;
+                    if (energy>0f)
+                    {
+                    circle.velocity = ChangeX(speedo, movement*speed);
+                    }
+                }
         }
+        bar.SetHealth(energy);
     }
 
     private void OnCollisionEnter(Collision collision)
