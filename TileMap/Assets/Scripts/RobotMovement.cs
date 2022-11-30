@@ -37,11 +37,6 @@ public class RobotMovement : MonoBehaviour, IChargeable
     {
         if (!Pause.paused){
             speedo = circle.velocity;
-            
-            if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
-            {
-                energy = energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f);
-            }
             bool IsGrounded()
             {
                 return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
@@ -60,10 +55,6 @@ public class RobotMovement : MonoBehaviour, IChargeable
                 {
                     energy = Mathf.Clamp(energy - (Mathf.Abs(circle.angularVelocity+1f)/100000f), 0, 100);
                 } 
-                bool IsGrounded()
-                {
-                    return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
-                }
 
                 movement = Input.GetAxis("Horizontal");
 
@@ -79,7 +70,7 @@ public class RobotMovement : MonoBehaviour, IChargeable
                     circle.drag = linearDragValue;
                     if (energy>0f)
                     {
-                    circle.velocity = ChangeX(speedo, movement*speed);
+                        circle.velocity = ChangeX(speedo, movement*speed);
                     }
                 }
         }
