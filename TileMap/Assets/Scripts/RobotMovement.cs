@@ -20,15 +20,12 @@ public class RobotMovement : MonoBehaviour, IChargeable
     [SerializeField] public float energy = 50;
     [SerializeField] public Vector2 speedo;
     //Linh
-    public GameObject nikolaRight;
-    public GameObject nikolaLeft;
+    public SpriteRenderer nikola;
 
     void Start()
     {
         angularDragValue = circle.angularDrag;
         linearDragValue = circle.drag;
-        if (nikolaLeft!=null) nikolaLeft.SetActive(false); 
-        if (nikolaRight!=null) nikolaRight.SetActive(true);
     }
 
     private void Update()
@@ -38,13 +35,11 @@ public class RobotMovement : MonoBehaviour, IChargeable
 
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                if (nikolaLeft!=null) nikolaLeft.SetActive(false); 
-                if (nikolaRight!=null) nikolaRight.SetActive(true);
-            }else if (Input.GetAxisRaw("Horizontal") < 0){
-                if (nikolaLeft!=null) nikolaLeft.SetActive(true); 
-                if (nikolaRight!=null) nikolaRight.SetActive(false);
-            }else{
-                if (nikolaRight!=null) nikolaRight.SetActive(true);
+                if (nikola != null) nikola.flipX = false;
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                if (nikola != null) nikola.flipX = true;
             }
 
             if (Mathf.Abs(Input.GetAxis("Horizontal"))>0) 
