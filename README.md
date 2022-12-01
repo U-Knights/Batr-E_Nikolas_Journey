@@ -5,14 +5,13 @@ In der fernen Solarpunk Zukunft wird dem kleinen Reperaturroboter Nikola aufgetr
 ### Genre & Art Style
 2D Puzzle Platformer, Pixel Art 16x16
 ## How to install 
-- Download the Git Repository
-- Do some magic
-- unzip the downloaded folder
-- click on [Game Name].exe
+- Lade das neuste Release runter.
+- Unzip den heruntergeladenen Ordner
+- Klick auf Batr-E.exe
 ## Features
 ### Steuerung des Spiels
 - A um sich nach links zu bewegen, D um sich nach rechts zu bewegen. Alternativ sind auch die Pfeiltasten möglich.
-- es gibt keine Sprungtaste. Nein, wirklich, es gibt keine. Nikola hat ein Rad, es wird nicht springen. Dafür gibt es aber andere Möglichkeiten sich durch das Level nach oben und unten zu bewegen, keine Sorge. 
+- Es gibt keine Sprungtaste. Nein, wirklich, Nikola hat ein Rad und kann deswegen nicht springen. Dafür gibt es aber andere Möglichkeiten sich durch das Level nach oben und unten zu bewegen.
 - Die Bewegung ist nur möglich solange der Roboter Energie übrig hat.
 ![Movement Gif](/images/Movement.gif)
 - Mit ESC ruft man im Spiel das Pausenmenu auf.
