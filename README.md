@@ -38,8 +38,11 @@ Nikola, der Roboter, kann nicht viel - meist nur Kisten schieben und Energie auf
 ### Failing
 Wenn Nikola mal irgendwo runterfällt, hat man die Wahl das Spiel zu beenden oder das Level zu wiederholen so oft man möchte.
 ![Fail Gif](/images/Fail.gif)
+## Quellen
+Musik
+- 5.Track von https://assetstore.unity.com/packages/audio/music/8bit-music-062022-225623
 ## Team
 Eve Schütze, Linh Phuong Chu, Lukas Lüdecke, Nermin Rustic
-## build within
+## Build with
 Software
 - Unity Version 2021.3.12f1
